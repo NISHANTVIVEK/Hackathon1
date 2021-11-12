@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.Medconfer.api.services.DoctorService;
+import com.Medconfer.constants.RestURIs;
 import com.Medconfer.dtos.DoctorDto;
 
 import io.swagger.annotations.Api;
@@ -17,8 +18,8 @@ public class DoctorController {
 	@Autowired
 	DoctorService doctorService;
 	
-	@GetMapping("/doctors")
-	@ApiOperation(value = "Find all Hospitals for given search criteria",
+	@GetMapping(RestURIs.DOCTORS)
+	@ApiOperation(value = "Find all Doctors for given hospital ID",
 		    response = DoctorDto.class)
 	public List<DoctorDto> getDoctors(Long id) {
 		return doctorService.getDoctors(id);
