@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Medconfer.api.services.HospitalService;
 import com.Medconfer.constants.RestURIs;
 import com.Medconfer.dtos.HospitalDto;
+import com.Medconfer.dtos.HospitalSearchDto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +25,7 @@ public class HostpitalController {
 	@ApiOperation(value = "Find all Hospitals for given search criteria",
     response = HospitalDto.class,
     responseContainer = "List")
-	public List<HospitalDto> searchHospitals() {
-		return hospitalService.searchHospitals();
+	public List<HospitalDto> searchHospitals(HospitalSearchDto searchDto) {
+		return hospitalService.searchHospitals(searchDto);
 	}
 }
